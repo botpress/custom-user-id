@@ -1,5 +1,5 @@
 {
-  "name": "custom-user-id",
+  "name": "custom-channel",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,14 +9,19 @@
     "watch": "tsc --build --watch",
     "dev": "ts-node-dev src/index.ts"
   },
-  "dependencies": {
-    "@botpress/messaging-client": "^1.1.8",
-    "express": "^4.17.3"
-  },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "eslint": "^8.11.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "@botpress/messaging-client": "^1.1.8",
+    "@botpress/webchat": "^0.3.1",
+    "express": "^4.17.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
