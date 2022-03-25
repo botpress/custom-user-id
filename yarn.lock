@@ -125,10 +125,10 @@
     "@botpress/messaging-base" "1.1.1"
     socket.io-client "^4.4.1"
 
-"@botpress/webchat@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@botpress/webchat/-/webchat-0.3.1.tgz#cd28dadf728a710f4cdefee00f5a955194671d61"
-  integrity sha512-ipIR9OzE19/t5/PNUJN2BUdk1Y1i91f0fNtV5WwHN+qp+431t0CtnaW45yxBcxonGU8IbgrNRTgw8wYhrCkflw==
+"@botpress/webchat@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@botpress/webchat/-/webchat-0.3.3.tgz#45227cb9a18467cd9dbc67e6a69b579ce0534685"
+  integrity sha512-55H7NOXX5ab+2kNHjTVUOmouKjopvmGFfYA6BmxyxanC8bkQwg6yswNZSQT5uaJJGA9ugsDFKXTZhm+6+pcgyg==
   dependencies:
     "@blueprintjs/core" "^3.23.1"
     "@botpress/messaging-components" "0.3.0"

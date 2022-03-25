@@ -7,7 +7,8 @@
     "build": "tsc --build",
     "start": "node dist/index.js",
     "watch": "tsc --build --watch",
-    "dev": "ts-node-dev src/index.ts"
+    "dev": "ts-node-dev src/index.ts",
+    "ui": "parcel src/index.html"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
@@ -19,7 +20,7 @@
   },
   "dependencies": {
     "@botpress/messaging-client": "^1.1.8",
-    "@botpress/webchat": "^0.3.1",
+    "@botpress/webchat": "^0.3.3",
     "express": "^4.17.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

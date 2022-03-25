@@ -7,4 +7,4 @@ const config: Partial<Config> = {
   clientId: 'c28082df-0582-4ace-94cf-e6e293593b63'
 }
 
-ReactDOM.render(<ExposedWebChat config={config as Config} fullscreen={true} />, document.getElementById('oldwebchat'))
+ReactDOM.render(<ExposedWebChat config={config as Config} fullscreen={false} />, document.getElementById('main'))
