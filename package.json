@@ -4,11 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build",
-    "start": "node dist/index.js",
-    "watch": "tsc --build --watch",
-    "dev": "ts-node-dev src/index.ts",
-    "ui": "parcel src/index.html"
+    "be": "ts-node-dev src/backend/index.ts",
+    "fe": "parcel src/frontend/index.html",
+    "clean": "git clean -dfX"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
