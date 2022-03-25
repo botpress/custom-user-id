@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@botpress/messaging-client": "^1.1.8",
+    "@botpress/webchat-inject": "^0.3.3",
     "express": "^4.17.3"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
