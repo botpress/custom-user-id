@@ -60,6 +60,8 @@ app.post('/logout', (req, res) => {
   }
 
   delete sessions[sessionId]
+  console.log(`${username} logged out`)
+
   res.sendStatus(200)
 })
 

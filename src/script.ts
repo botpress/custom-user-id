@@ -25,7 +25,13 @@ formLogin.onsubmit = async (e) => {
     localStorage.setItem('sid', sessionId)
     inputSessionId.value = sessionId
     inputSessionUsername.value = inputUserName.value
-  } catch {}
+    buttonLogout.disabled = false
+  } catch {
+    localStorage.removeItem('sid')
+    inputSessionId.value = ''
+    inputSessionUsername.value = ''
+    buttonLogout.disabled = true
+  }
 
   return false
 }
@@ -47,6 +53,7 @@ buttonLogout.onclick = async (e) => {
 
   inputSessionId.value = ''
   inputSessionUsername.value = ''
+  buttonLogout.disabled = true
   localStorage.removeItem('sid')
 }
 
@@ -65,6 +72,7 @@ const fetchSessionInfo = async () => {
 
     inputSessionId.value = sid
     inputSessionUsername.value = username
+    buttonLogout.disabled = false
   } catch (e) {
     localStorage.removeItem('sid')
   }
