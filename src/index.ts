@@ -44,11 +44,22 @@ app.post('/login', (req, res) => {
     return res.sendStatus(401)
   }
 
-  const sessionId = randomstring.generate(128)
+  const sessionId = randomstring.generate(32)
   sessions[sessionId] = username
 
   res.send({ sessionId })
   console.log(`success!`)
+})
+
+app.get('/user', (req, res) => {
+  const sessionId = req.headers['sid'] as string
+  const username = sessions[sessionId]
+
+  if (!username) {
+    return res.sendStatus(401)
+  }
+
+  res.send({ username })
 })
 
 // route to start a conversation on messaging
@@ -73,7 +84,7 @@ app.post('/start', async (req, res) => {
     const { userId } = (await messaging.getConversation(conversationId))!
 
     console.log(`user id is ${userId}`)
-    res.send({ conversationId })
+    res.send({ userId })
   } catch (e) {
     console.log('unexpected error occurred', e)
     res.sendStatus(500)

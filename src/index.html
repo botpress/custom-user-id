@@ -6,7 +6,51 @@
     <script defer type="module" src="script.ts"></script>
   </head>
   <body>
-    <div id="menu"></div>
+    <div id="menu">
+      <section>
+        <h3>Login</h3>
+
+        <form autocomplete="off" id="form-login">
+          <label>Username</label>
+          <br />
+          <input type="text" id="input-username" required />
+          <br />
+          <label>Password</label>
+          <br />
+          <input type="text" id="input-password" required />
+          <br />
+          <button>Login</button>
+        </form>
+      </section>
+
+      <section>
+        <h3>Session</h3>
+
+        <label>Username</label>
+        <br />
+        <input type="text" disabled id="input-session-username" />
+        <br />
+        <label>Session Id</label>
+        <br />
+        <input type="text" disabled id="input-session-id" />
+        <br />
+        <button id="button-logout">Logout</button>
+      </section>
+
+      <section>
+        <h3>Webchat</h3>
+
+        <label>User Id</label>
+        <br />
+        <input type="text" disabled id="input-user-id" />
+        <br />
+        <label>User Token</label>
+        <br />
+        <input type="text" disabled id="input-user-token" />
+        <br />
+        <button id="button-start">Start</button>
+      </section>
+    </div>
   </body>
 
   <script src="http://localhost:3125/webchat/inject.js"></script>

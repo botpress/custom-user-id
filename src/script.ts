@@ -1,137 +1,63 @@
 import axios from 'axios'
 
-export class MainMenu {
-  private inputUserName!: HTMLInputElement
-  private inputPassword!: HTMLInputElement
-  private inputUserId!: HTMLInputElement
-  private inputUserToken!: HTMLInputElement
+const inputUserName = document.getElementById('input-username') as HTMLInputElement
+const inputPassword = document.getElementById('input-password') as HTMLInputElement
+const inputSessionId = document.getElementById('input-session-id') as HTMLInputElement
+const inputSessionUsername = document.getElementById('input-session-username') as HTMLInputElement
+const inputUserId = document.getElementById('input-user-id') as HTMLInputElement
+const inputUserToken = document.getElementById('input-user-token') as HTMLInputElement
 
-  constructor(private parent: HTMLElement) {
-    this.make()
-  }
+const formLogin = document.getElementById('form-login') as HTMLFormElement
+const buttonLogout = document.getElementById('button-logout') as HTMLButtonElement
+const buttonStart = document.getElementById('button-start') as HTMLButtonElement
 
-  private make() {
-    element('h3', this.parent, (title) => {
-      text('Login', title)
-    })
-    element('form', this.parent, (form) => {
-      form.autocomplete = 'off'
+formLogin.onsubmit = async (e) => {
+  e.preventDefault()
 
-      element('label', form, (label) => {
-        label.htmlFor = 'bp-user-name-input'
-        text('username', label)
-      })
-      element('br', form)
-      this.inputUserName = element('input', form, (input) => {
-        input.type = 'text'
-        input.name = 'bp-user-name-input'
-      })
-      element('br', form)
-      element('label', form, (label) => {
-        label.htmlFor = 'bp-password-input'
-        text('password', label)
-      })
-      element('br', form)
-      this.inputPassword = element('input', form, (input) => {
-        input.type = 'text'
-        input.name = 'bp-password-input'
-      })
-      element('br', form)
-      element('button', form, (button) => {
-        text('Login', button)
-      })
-      element('br', form)
-
-      form.onsubmit = (e) => {
-        e.preventDefault()
-        void this.submit()
-        return false
-      }
-    })
-
-    element('button', this.parent, (button) => {
-      text('Test', button)
-      button.onclick = (e) => {
-        void this.test()
-      }
-    })
-
-    element('h3', this.parent, (title) => {
-      text('Webchat', title)
-    })
-    element('form', this.parent, (form) => {
-      form.autocomplete = 'off'
-
-      element('label', form, (label) => {
-        label.htmlFor = 'bp-userId-input'
-        text('userId', label)
-      })
-      element('br', form)
-      this.inputUserId = element('input', form, (input) => {
-        input.type = 'text'
-        input.name = 'bp-userId-input'
-      })
-      element('br', form)
-      element('label', form, (label) => {
-        label.htmlFor = 'bp-userToken-input'
-        text('userToken', label)
-      })
-      element('br', form)
-      this.inputUserToken = element('input', form, (input) => {
-        input.type = 'text'
-        input.name = 'bp-userToken-input'
-      })
-      element('br', form)
-      element('button', form, (button) => {
-        text('Apply', button)
-      })
-
-      form.onsubmit = (e) => {
-        e.preventDefault()
-        return false
-      }
-    })
-  }
-
-  private async submit() {
+  try {
     const { sessionId } = (
       await axios.post('http://localhost:3125/login', {
-        username: this.inputUserName.value,
-        password: this.inputPassword.value
+        username: inputUserName.value,
+        password: inputPassword.value
       })
     ).data
 
     localStorage.setItem('sid', sessionId)
-  }
+    inputSessionId.value = sessionId
+    inputSessionUsername.value = inputUserName.value
+  } catch {}
 
-  private async test() {
-    const res = await axios.post('http://localhost:3125/start', undefined, {
+  return false
+}
+
+buttonStart.onclick = async (e) => {
+  const { userId, userToken } = (
+    await axios.post('http://localhost:3125/start', undefined, {
       headers: { sid: localStorage.getItem('sid')! }
     })
-  }
+  ).data
+
+  inputUserId.value = userId
 }
 
-export const element = <K extends keyof HTMLElementTagNameMap, N extends Node>(
-  type: K,
-  parent: N,
-  construct?: (node: HTMLElementTagNameMap[K]) => void
-) => {
-  const node = document.createElement(type)
+const fetchSessionInfo = async () => {
+  const sid = localStorage.getItem('sid')
+  if (!sid?.length) {
+    return
+  }
 
   try {
-    construct?.(node)
+    const { username } = (
+      await axios.get('http://localhost:3125/user', {
+        headers: { sid: localStorage.getItem('sid')! }
+      })
+    ).data
+
+    inputSessionId.value = sid
+    inputSessionUsername.value = username
   } catch (e) {
-    node.appendChild(document.createTextNode(<any>e))
+    localStorage.removeItem('sid')
   }
-
-  parent.appendChild(node)
-  return node
 }
 
-export const text = <N extends Node>(data: string | undefined, parent: N) => {
-  const text = document.createTextNode(data || '')
-  parent.appendChild(text)
-  return text
-}
-
-new MainMenu(document.getElementById('menu')!)
+void fetchSessionInfo()
