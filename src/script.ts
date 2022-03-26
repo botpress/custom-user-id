@@ -37,13 +37,15 @@ formLogin.onsubmit = async (e) => {
 }
 
 buttonStart.onclick = async (e) => {
-  const { userId, userToken } = (
-    await axios.post('http://localhost:3125/start', undefined, {
-      headers: { sid: localStorage.getItem('sid')! }
-    })
-  ).data
+  try {
+    const { userId, userToken } = (
+      await axios.post('http://localhost:3125/start', undefined, {
+        headers: { sid: localStorage.getItem('sid')! }
+      })
+    ).data
 
-  inputUserId.value = userId
+    inputUserId.value = userId
+  } catch {}
 }
 
 buttonLogout.onclick = async (e) => {
