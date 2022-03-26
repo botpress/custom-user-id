@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "be": "ts-node-dev src/backend/index.ts",
-    "fe": "parcel src/frontend/index.html",
+    "be": "ts-node-dev src/index.ts",
+    "fe": "parcel src/index.html",
     "clean": "git clean -dfX"
   },
   "devDependencies": {

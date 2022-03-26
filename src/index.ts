@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 
 // serve webchat assets
-app.use('/webchat', express.static(path.join(__dirname, '../../node_modules/@botpress/webchat-inject/dist')))
+app.use('/webchat', express.static(path.join(__dirname, '../node_modules/@botpress/webchat-inject/dist')))
 
 // simulates a database that stores our users (plaintext passwords for simplicity)
 const users: { [username: string]: string | undefined } = {
