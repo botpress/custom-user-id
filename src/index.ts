@@ -99,8 +99,13 @@ app.post('/start', async (req, res) => {
 
     console.log(`user id is ${userId}`)
     res.send({ userId })
-  } catch (e) {
-    console.log('unexpected error occurred', e)
+  } catch (e: any) {
+    console.log('unexpected error occurred calling messaging', {
+      message: e.message,
+      response: e.response?.data,
+      status: e.response?.status
+    })
+
     res.sendStatus(500)
   }
 })
