@@ -40,6 +40,16 @@ buttonStart.onclick = async (e) => {
   inputUserId.value = userId
 }
 
+buttonLogout.onclick = async (e) => {
+  await axios.post('http://localhost:3125/logout', undefined, {
+    headers: { sid: localStorage.getItem('sid')! }
+  })
+
+  inputSessionId.value = ''
+  inputSessionUsername.value = ''
+  localStorage.removeItem('sid')
+}
+
 const fetchSessionInfo = async () => {
   const sid = localStorage.getItem('sid')
   if (!sid?.length) {

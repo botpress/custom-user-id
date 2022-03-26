@@ -51,6 +51,18 @@ app.post('/login', (req, res) => {
   console.log(`success!`)
 })
 
+app.post('/logout', (req, res) => {
+  const sessionId = req.headers['sid'] as string
+  const username = sessions[sessionId]
+
+  if (!username) {
+    return res.sendStatus(401)
+  }
+
+  delete sessions[sessionId]
+  res.sendStatus(200)
+})
+
 app.get('/user', (req, res) => {
   const sessionId = req.headers['sid'] as string
   const username = sessions[sessionId]
