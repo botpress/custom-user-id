@@ -46,6 +46,14 @@ buttonStart.onclick = async (e) => {
 
     inputUserId.value = userId
     inputUserToken.value = userToken
+
+    const win = window as any
+    win.botpressWebChat.mergeConfig({
+      customUser: {
+        userId,
+        userToken
+      }
+    })
   } catch {}
 }
 
