@@ -81,4 +81,16 @@ const fetchSessionInfo = async () => {
   }
 }
 
+const initializeWebchat = async () => {
+  const { clientId } = (await axios.get('http://localhost:3125/client-id')).data
+
+  const win = window as any
+  win.botpressWebChat.init({
+    hostUrl: 'http://localhost:3125/webchat',
+    messagingUrl: 'http://localhost:3100',
+    clientId
+  })
+}
+
 void fetchSessionInfo()
+void initializeWebchat()

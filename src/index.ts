@@ -113,5 +113,9 @@ app.post('/start', async (req, res) => {
   }
 })
 
+app.get('/client-id', (req, res) => {
+  res.send({ clientId: config.messaging.clientId })
+})
+
 app.listen(3125)
 console.log(`listening on port 3125`)
