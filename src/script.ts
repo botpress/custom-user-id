@@ -45,6 +45,7 @@ buttonStart.onclick = async (e) => {
     ).data
 
     inputUserId.value = userId
+    inputUserToken.value = userToken
   } catch {}
 }
 
