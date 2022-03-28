@@ -4,6 +4,7 @@ import cors from 'cors'
 import randomstring from 'randomstring'
 import { MessagingClient } from '@botpress/messaging-client'
 import config from './config.json'
+import resolvePackagePath from 'resolve-package-path'
 
 const messaging = new MessagingClient({
   url: 'http://localhost:3100',
@@ -15,7 +16,8 @@ app.use(cors())
 app.use(express.json())
 
 // serve webchat assets
-app.use('/webchat', express.static(path.join(__dirname, '../node_modules/@botpress/webchat-inject/dist')))
+const injectAssetsDir = resolvePackagePath('@botpress/webchat-inject', __dirname)!
+app.use('/webchat', express.static(path.join(path.dirname(injectAssetsDir), 'dist')))
 
 // simulates a database that stores our users (plaintext passwords for simplicity)
 const users: { [username: string]: string | undefined } = {
