@@ -101,7 +101,7 @@ app.post('/start', async (req, res) => {
     const userToken = await messaging.createUserToken(userId)
 
     console.log(`user id is ${userId}`)
-    res.send({ userId, userToken })
+    res.send({ userId, userToken: userToken.token })
   } catch (e: any) {
     console.log('unexpected error occurred calling messaging', {
       message: e.message,
