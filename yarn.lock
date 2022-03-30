@@ -128,15 +128,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@botpress/messaging-client@npm:^1.1.8":
-  version: 1.1.8
-  resolution: "@botpress/messaging-client@npm:1.1.8"
+"@botpress/messaging-client@npm:^1.1.9":
+  version: 1.1.9
+  resolution: "@botpress/messaging-client@npm:1.1.9"
   dependencies:
     "@botpress/messaging-base": 1.1.1
     axios: ^0.21.4
     cookie: ^0.4.2
     joi: ^17.6.0
-  checksum: 81345f626b38bc71fcdee818f422d9161d463f396b100681ec751d49f2bc4b9cc3dcb16097dd9bc46c87e74980e68c86a2a1cabd3fcaa66fc3018807be936f5b
+  checksum: 7f89b764e8af14b542cebeae0c814a20ab70754b997fa3502dba84c63fed0b63d92723083b7cfa6171985ebf8424fbd7229c6e67b2c8b65d3dac84e9653d7c46
   languageName: node
   linkType: hard
 
@@ -178,20 +178,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@botpress/webchat-inject@npm:^0.3.3":
-  version: 0.3.3
-  resolution: "@botpress/webchat-inject@npm:0.3.3"
+"@botpress/webchat-inject@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "@botpress/webchat-inject@npm:0.3.4"
   dependencies:
-    "@botpress/webchat": 0.3.3
+    "@botpress/webchat": 0.3.4
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 208568a96089e89a25b457946a74d0bbed92337b4f5f7e0752cb61dea1bd2fe5bee19a6fc415d5d3f5ba10110dbfa550fd2068dc30a26891b1c26bb54fcbc6c4
+  checksum: f5183f4dee049dffe6ae8fece1c91d4311b65614b7608bcb431e4eba3027e2fc7aa911477141d2ba25d8459833dca1bc55dda9309e15b88b9155df2141ac5b11
   languageName: node
   linkType: hard
 
-"@botpress/webchat@npm:0.3.3":
-  version: 0.3.3
-  resolution: "@botpress/webchat@npm:0.3.3"
+"@botpress/webchat@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@botpress/webchat@npm:0.3.4"
   dependencies:
     "@blueprintjs/core": ^3.23.1
     "@botpress/messaging-components": 0.3.0
@@ -215,7 +215,7 @@ __metadata:
     react-intl: ^3.12.1
     snarkdown: ^2.0.0
     uuid: ^8.3.2
-  checksum: 2bcf1c5d940d6dab69fb315700adcfbcc447627891263c499bae1400c99081586adcef7fd11cf86fdfc00a6d55b05971cf65df0d2889a84cea648c0bbce1dce9
+  checksum: a4a8ffb2ffd62575a0248a235b227c9817ad40e28e800b1dd3963b49a429e8aa57a750a0b8332e40808ce5031a3e859a4be122d655355cc2e04ee9134e1ccc88
   languageName: node
   linkType: hard
 
@@ -2142,8 +2142,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "custom-channel@workspace:."
   dependencies:
-    "@botpress/messaging-client": ^1.1.8
-    "@botpress/webchat-inject": ^0.3.3
+    "@botpress/messaging-client": ^1.1.9
+    "@botpress/webchat-inject": ^0.3.4
     "@types/cors": ^2.8.12
     "@types/express": ^4.17.13
     "@types/randomstring": ^1.1.8
